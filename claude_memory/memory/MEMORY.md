@@ -4,8 +4,11 @@
 
 - [Doc-drift on file deletion](feedback_doc_drift.md) — grep markdowns before `git rm`; codified in CLAUDE.md
 - [Starting-state memory before compaction](feedback_starting_state_memory.md) — meta-pattern: capture decisions + safety nets + open questions when context is about to compact and substantial work is queued
-- [Phase 1 starting state](project_phase1_starting_state.md) — cohort refactor decisions + parity test, captured 2026-04-16 pre-compaction
 - [Git commit conventions](feedback_git_commits.md) — no Co-Authored-By, keep messages short
+- [Phase 1 starting state](project_phase1_starting_state.md) — cohort refactor decisions + parity test, captured 2026-04-16 (historical — see phase1_shipped for current state)
+- [Phase 1 shipped](project_phase1_shipped.md) — Phase 1 complete 2026-04-17 with byte-for-byte parity; what landed in `feat/phase1-cohort-refactor`
+- [Phase 2a ready](project_phase2a_ready.md) — pLGG ingest scaffold committed, setup.py integration, OpenPedCan v15 choice, GENCODE v27→v23 reconciliation gate
+- [User affiliation — Czech biotech](user_affiliation.md) — SOTIO; flag data-use-license questions when recommending sources
 
 ## User Preferences
 
