@@ -1,0 +1,54 @@
+● Committed as 024b2a9 on data_repository/main. One push away from the new PC being ready to hydrate.
+
+  Final memory state
+
+  ┌───────────────────────────────────┬──────────┬───────────────────────────────────────────────────────────────────────────┐
+  │               File                │   Type   │                                  Purpose                                  │
+  ├───────────────────────────────────┼──────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ MEMORY.md                         │ index    │ Links to all memories; updated with new entries                           │
+  ├───────────────────────────────────┼──────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ feedback_doc_drift.md             │ feedback │ Grep markdowns before git rm                                              │
+  ├───────────────────────────────────┼──────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ feedback_starting_state_memory.md │ feedback │ Meta-pattern for pre-compaction snapshots                                 │
+  ├───────────────────────────────────┼──────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ feedback_git_commits.md           │ feedback │ No Co-Authored-By, keep commits short                                     │
+  ├───────────────────────────────────┼──────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ project_phase1_starting_state.md  │ project  │ Historical — captured pre-Phase-1                                         │
+  ├───────────────────────────────────┼──────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ project_phase1_shipped.md         │ project  │ New — Phase 1 complete, what shipped, parity gate                         │
+  ├───────────────────────────────────┼──────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ project_phase2a_ready.md          │ project  │ New — Phase 2a scaffold ready, OpenPedCan v15 design, reconciliation gate │
+  ├───────────────────────────────────┼──────────┼───────────────────────────────────────────────────────────────────────────┤
+  │ user_affiliation.md               │ user     │ New — SOTIO Czech biotech; flag license/DUA questions                     │
+  └───────────────────────────────────┴──────────┴───────────────────────────────────────────────────────────────────────────┘
+
+  Two pushes for full migration-readiness
+
+  # 1. Push the kraken branch with the Phase 1 work + setup.py extension
+  cd ~/code/kraken
+  git push origin feat/phase1-cohort-refactor
+  # (or: git push sotio feat/phase1-cohort-refactor)
+
+  # 2. Push the data_repository with the refreshed Claude memory
+  cd ~/code/data_repository
+  git push origin main
+
+  After both push, the new PC recipe is:
+
+  git clone git@github.com:fhew/kraken.git
+  git clone git@github.com:fhew/data_repository.git
+  cd kraken
+  git checkout feat/phase1-cohort-refactor
+  python -m venv venv && source venv/bin/activate
+  pip install -r requirements.txt
+
+  # Restore Claude memory
+  mkdir -p ~/.claude/projects/-home-$USER-code-kraken
+  cp -r ../data_repository/claude_memory/. ~/.claude/projects/-home-$USER-code-kraken/
+
+  # One-command data hydration (~3-4 hrs total, mostly network)
+  python scripts/setup.py
+
+  Memory carries over: I'll remember the SOTIO context, the commit conventions, Phase 1's parity gate, and the Phase 2a design
+  choices. The new session will start with full situational awareness from the moment you open the project in Claude Code. Safe
+  travels.
